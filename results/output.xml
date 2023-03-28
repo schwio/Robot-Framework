@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.10 on win32)" generated="20230328 18:19:27.526" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Framework" source="C:\Users\mateu\OneDrive\Área de Trabalho\Cursos\Youtube\Robot Framework">
+<suite id="s1-s1" name="Suites" source="C:\Users\mateu\OneDrive\Área de Trabalho\Cursos\Youtube\Robot Framework\suites">
+<suite id="s1-s1-s1" name="Logar" source="C:\Users\mateu\OneDrive\Área de Trabalho\Cursos\Youtube\Robot Framework\suites\logar">
+<suite id="s1-s1-s1-s1" name="Logar" source="C:\Users\mateu\OneDrive\Área de Trabalho\Cursos\Youtube\Robot Framework\suites\logar\logar.robot">
+<test id="s1-s1-s1-s1-t1" name="TC01 - Realizando o login no AVA Presencial" line="7">
+<kw name="Dado que eu acesso a página do AVA" library="login_page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230328 18:19:27.952" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000028BC7F3DD80&gt;</msg>
+<status status="PASS" starttime="20230328 18:19:27.952" endtime="20230328 18:19:27.952"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230328 18:19:27.952" endtime="20230328 18:19:27.952"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230328 18:19:27.952" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230328 18:19:27.952" endtime="20230328 18:19:29.871"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>location.reload(true);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230328 18:19:29.871" level="INFO">Executing JavaScript:
+location.reload(true);
+Without any arguments.</msg>
+<status status="PASS" starttime="20230328 18:19:29.871" endtime="20230328 18:19:29.891"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230328 18:19:29.891" endtime="20230328 18:19:30.038"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${geral.URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230328 18:19:30.038" level="INFO">Opening url 'https://ava.unesc.net'</msg>
+<status status="PASS" starttime="20230328 18:19:30.038" endtime="20230328 18:19:35.038"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230328 18:19:36.053" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230328 18:19:35.038" endtime="20230328 18:19:36.053"/>
+</kw>
+<status status="PASS" starttime="20230328 18:19:27.952" endtime="20230328 18:19:36.053"/>
+</kw>
+<kw name="E faço o login" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login_page.InputUserLogin}</arg>
+<arg>${user_login.username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230328 18:19:36.053" level="INFO">Typing text 'Mateus' into text field '//input[@id="username"]'.</msg>
+<status status="PASS" starttime="20230328 18:19:36.053" endtime="20230328 18:19:36.284"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login_page.InputUserPassword}</arg>
+<arg>${user_login.password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230328 18:19:36.284" level="INFO">Typing text 'M@te4216' into text field '//input[@id="password"]'.</msg>
+<status status="PASS" starttime="20230328 18:19:36.284" endtime="20230328 18:19:36.444"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_page.SubmitButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230328 18:19:36.450" level="INFO">Clicking element '//button[@id="loginbtn"]'.</msg>
+<status status="PASS" starttime="20230328 18:19:36.444" endtime="20230328 18:19:38.298"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230328 18:19:43.301" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230328 18:19:38.300" endtime="20230328 18:19:43.301"/>
+</kw>
+<status status="PASS" starttime="20230328 18:19:36.053" endtime="20230328 18:19:43.304"/>
+</kw>
+<kw name="Fechar navegador" library="setup_teardown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230328 18:19:43.316" endtime="20230328 18:19:45.512"/>
+</kw>
+<status status="PASS" starttime="20230328 18:19:43.314" endtime="20230328 18:19:45.512"/>
+</kw>
+<status status="PASS" starttime="20230328 18:19:27.952" endtime="20230328 18:19:45.512"/>
+</test>
+<status status="PASS" starttime="20230328 18:19:27.609" endtime="20230328 18:19:45.512"/>
+</suite>
+<status status="PASS" starttime="20230328 18:19:27.604" endtime="20230328 18:19:45.527"/>
+</suite>
+<status status="PASS" starttime="20230328 18:19:27.603" endtime="20230328 18:19:45.529"/>
+</suite>
+<status status="PASS" starttime="20230328 18:19:27.543" endtime="20230328 18:19:45.529"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Framework">Robot Framework</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Suites">Robot Framework.Suites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Logar">Robot Framework.Suites.Logar</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Logar">Robot Framework.Suites.Logar.Logar</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
